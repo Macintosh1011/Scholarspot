@@ -14,14 +14,20 @@ struct OpportunityCell: View {
         Button(action: {
             print("OpportunityCell tapped")
         }) {
-            VStack(alignment: .leading, spacing: 16) {
-                if opportunity.isNew {
-                    Text("New")
+            VStack(alignment: .leading, spacing: 8) {
+                HStack {
+                    if opportunity.isNew {
+                        Text("New")
+                            .font(.caption)
+                            .foregroundColor(.white)
+                            .padding(4)
+                            .background(Color.blue)
+                            .cornerRadius(4)
+                    }
+                    Spacer()
+                    Text("Deadline: \(formattedDeadline(deadline: opportunity.deadline))")
                         .font(.caption)
-                        .foregroundColor(.white)
-                        .padding(4)
-                        .background(Color.pink)
-                        .cornerRadius(4)
+                        .foregroundColor(isPastDeadline(deadline: opportunity.deadline) ? .red : .gray)
                 }
                 
                 Text(opportunity.title)
@@ -33,34 +39,61 @@ struct OpportunityCell: View {
                     .font(.body)
                     .foregroundColor(.gray)
                 
-                HStack {
-                    Text(opportunity.cost)
-                        .foregroundColor(.green)
-                        .padding(.vertical, 4)
-                        .padding(.horizontal, 6)
-                        .background(Color.green.opacity(0.1))
-                        .cornerRadius(4)
+                LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 8) {
+                    HStack {
+                        Image(systemName: "tag.fill")
+                            .foregroundColor(.green)
+                        Text(opportunity.cost)
+                            .foregroundColor(.green)
+                    }
+                    .padding(.vertical, 4)
+                    .padding(.horizontal, 6)
+                    .background(Color.green.opacity(0.1))
+                    .cornerRadius(4)
                     
-                    Text(opportunity.mode)
-                        .foregroundColor(.green)
-                        .padding(.vertical, 4)
-                        .padding(.horizontal, 6)
-                        .background(Color.green.opacity(0.1))
-                        .cornerRadius(4)
+                    HStack {
+                        Image(systemName: "briefcase.fill")
+                            .foregroundColor(.blue)
+                        Text(opportunity.mode)
+                            .foregroundColor(.blue)
+                    }
+                    .padding(.vertical, 4)
+                    .padding(.horizontal, 6)
+                    .background(Color.blue.opacity(0.1))
+                    .cornerRadius(4)
                     
-                    Text(opportunity.grades)
-                        .foregroundColor(.black)
-                        .padding(.vertical, 4)
-                        .padding(.horizontal, 6)
-                        .background(Color.gray.opacity(0.1))
-                        .cornerRadius(4)
+                    HStack {
+                        Image(systemName: "graduationcap.fill")
+                            .foregroundColor(.orange)
+                        Text(opportunity.grades)
+                            .foregroundColor(.orange)
+                    }
+                    .padding(.vertical, 4)
+                    .padding(.horizontal, 6)
+                    .background(Color.orange.opacity(0.1))
+                    .cornerRadius(4)
                     
-                    Text(opportunity.field)
-                        .foregroundColor(.black)
-                        .padding(.vertical, 4)
-                        .padding(.horizontal, 6)
-                        .background(Color.gray.opacity(0.1))
-                        .cornerRadius(4)
+                    HStack {
+                        Image(systemName: "leaf.fill")
+                            .foregroundColor(.purple)
+                        Text(opportunity.field)
+                            .foregroundColor(.purple)
+                    }
+                    .padding(.vertical, 4)
+                    .padding(.horizontal, 6)
+                    .background(Color.purple.opacity(0.1))
+                    .cornerRadius(4)
+                    
+                    HStack {
+                        Image(systemName: "person.fill")
+                            .foregroundColor(.gray)
+                        Text(opportunity.status)
+                            .foregroundColor(.gray)
+                    }
+                    .padding(.vertical, 4)
+                    .padding(.horizontal, 6)
+                    .background(Color.gray.opacity(0.1))
+                    .cornerRadius(4)
                 }
                 
                 HStack {
@@ -78,20 +111,6 @@ struct OpportunityCell: View {
                 }
                 .foregroundColor(.gray)
                 .font(.body)
-                
-                Text(opportunity.status)
-                    .font(.caption)
-                    .foregroundColor(.gray)
-                
-                if let deadlineDate = convertToDate(from: opportunity.deadline) {
-                    Text("Deadline: \(formattedDeadline(deadline: deadlineDate))")
-                        .font(.caption)
-                        .foregroundColor(isPastDeadline(deadline: deadlineDate) ? .red : .gray)
-                } else {
-                    Text("Invalid Deadline Format")
-                        .font(.caption)
-                        .foregroundColor(.red)
-                }
             }
             .padding()
             .background(Color.white)
@@ -108,19 +127,20 @@ struct OpportunityCell: View {
         return formatter.date(from: dateString)
     }
     
-    func isPastDeadline(deadline: Date) -> Bool {
-        return deadline < Date()
+    func isPastDeadline(deadline: String) -> Bool {
+        if let date = convertToDate(from: deadline) {
+            return date < Date()
+        }
+        return false
     }
     
-    func formattedDeadline(deadline: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MM/dd/yyyy"
-        return formatter.string(from: deadline)
+    func formattedDeadline(deadline: String) -> String {
+        return deadline
     }
 }
 
 struct OpportunityCell_Previews: PreviewProvider {
     static var previews: some View {
-        OpportunityCell(opportunity: Opportunity(id: "1", title: "Sample Title", company: "Sample Company", mode: "Full-Time", cost: "Free", grades: "9th, 10th", field: "Science", type: "Internship", description: ["Description"], status: "Open", deadline: "06/30/2024", isNew: true))
+        OpportunityCell(opportunity: Opportunity(id: "1", title: "Sample Title", company: "Sample Company", mode: "Online", cost: "0.0", grades: "9th, 10th, 11th", field: "Technology", type: "Internship", description: ["Project-based learning program where students form international teams and work with STEM experts through an online community platform.", "Students participate in innovation challenges where they collaborate under the guidance of STEM mentors to design solutions to real-world problems."], status: "Closed", deadline: "07/01/2024", isNew: true))
     }
 }
