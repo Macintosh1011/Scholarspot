@@ -30,10 +30,20 @@ struct OpportunityCell: View {
                         .foregroundColor(isPastDeadline(deadline: opportunity.deadline) ? .red : .gray)
                 }
                 
-                Text(opportunity.title)
-                    .font(.title2)
-                    .fontWeight(.bold)
-                    .foregroundColor(.black)
+                HStack {
+                    Text(opportunity.title)
+                        .font(.title2)
+                        .fontWeight(.bold)
+                        .foregroundColor(.black)
+                    Spacer()
+                    Text(opportunity.status)
+                        .font(.caption)
+                        .foregroundColor(.gray)
+                        .padding(.vertical, 4)
+                        .padding(.horizontal, 6)
+                        .background(Color.gray.opacity(0.1))
+                        .cornerRadius(4)
+                }
                 
                 Text(opportunity.company)
                     .font(.body)
@@ -82,17 +92,6 @@ struct OpportunityCell: View {
                     .padding(.vertical, 4)
                     .padding(.horizontal, 6)
                     .background(Color.purple.opacity(0.1))
-                    .cornerRadius(4)
-                    
-                    HStack {
-                        Image(systemName: "person.fill")
-                            .foregroundColor(.gray)
-                        Text(opportunity.status)
-                            .foregroundColor(.gray)
-                    }
-                    .padding(.vertical, 4)
-                    .padding(.horizontal, 6)
-                    .background(Color.gray.opacity(0.1))
                     .cornerRadius(4)
                 }
                 
