@@ -11,9 +11,7 @@ struct OpportunityCell: View {
     var opportunity: Opportunity
     
     var body: some View {
-        Button(action: {
-            print("OpportunityCell tapped")
-        }) {
+        NavigationLink(destination: OpportunityDetail(opportunity: opportunity)) {
             VStack(alignment: .leading, spacing: 8) {
                 HStack {
                     if opportunity.isNew {
@@ -117,7 +115,6 @@ struct OpportunityCell: View {
             .shadow(color: Color.gray.opacity(0.2), radius: 5, x: 0, y: 2)
             .padding()
         }
-        .buttonStyle(PlainButtonStyle())
     }
     
     func convertToDate(from dateString: String) -> Date? {
@@ -140,6 +137,22 @@ struct OpportunityCell: View {
 
 struct OpportunityCell_Previews: PreviewProvider {
     static var previews: some View {
-        OpportunityCell(opportunity: Opportunity(id: "1", title: "Sample Title", company: "Sample Company", mode: "Online", cost: "0.0", grades: "9th, 10th, 11th", field: "Technology", type: "Internship", description: ["Project-based learning program where students form international teams and work with STEM experts through an online community platform.", "Students participate in innovation challenges where they collaborate under the guidance of STEM mentors to design solutions to real-world problems."], status: "Closed", deadline: "07/01/2024", isNew: true))
+        OpportunityCell(opportunity: Opportunity(
+            id: "1",
+            title: "Sample Title",
+            company: "Sample Company",
+            mode: "Online",
+            cost: "0.0",
+            grades: "9th, 10th, 11th",
+            field: "Technology",
+            type: "Internship",
+            description: [
+                "Project-based learning program where students form international teams and work with STEM experts through an online community platform.",
+                "Students participate in innovation challenges where they collaborate under the guidance of STEM mentors to design solutions to real-world problems."
+            ],
+            status: "Closed",
+            deadline: "07/01/2024",
+            isNew: true
+        ))
     }
 }

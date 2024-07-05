@@ -20,7 +20,7 @@
 		3C1CAD322C312D5A0083AA80 /* DeadlineSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1CAD312C312D5A0083AA80 /* DeadlineSelectionView.swift */; };
 		3C1CAD342C312D710083AA80 /* ReviewandSubmitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1CAD332C312D710083AA80 /* ReviewandSubmitView.swift */; };
 		3C1CAD362C312D840083AA80 /* MultipleSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1CAD352C312D840083AA80 /* MultipleSelectionView.swift */; };
-		3CAB7EC52C3689CB006EB699 /* OpportunityFeed1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAB7EC42C3689CB006EB699 /* OpportunityFeed1.swift */; };
+		3CAB7EC72C376172006EB699 /* OppurtunityDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAB7EC62C376172006EB699 /* OppurtunityDetail.swift */; };
 		3CB86B0D2C311FC6006D4C27 /* ScholarspotApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB86B0C2C311FC6006D4C27 /* ScholarspotApp.swift */; };
 		3CB86B0F2C311FC6006D4C27 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB86B0E2C311FC6006D4C27 /* ContentView.swift */; };
 		3CB86B112C311FC7006D4C27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CB86B102C311FC7006D4C27 /* Assets.xcassets */; };
@@ -40,7 +40,7 @@
 		3C1CAD312C312D5A0083AA80 /* DeadlineSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineSelectionView.swift; sourceTree = "<group>"; };
 		3C1CAD332C312D710083AA80 /* ReviewandSubmitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewandSubmitView.swift; sourceTree = "<group>"; };
 		3C1CAD352C312D840083AA80 /* MultipleSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleSelectionView.swift; sourceTree = "<group>"; };
-		3CAB7EC42C3689CB006EB699 /* OpportunityFeed1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpportunityFeed1.swift; sourceTree = "<group>"; };
+		3CAB7EC62C376172006EB699 /* OppurtunityDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OppurtunityDetail.swift; sourceTree = "<group>"; };
 		3CB86B092C311FC6006D4C27 /* Scholarspot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scholarspot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CB86B0C2C311FC6006D4C27 /* ScholarspotApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScholarspotApp.swift; sourceTree = "<group>"; };
 		3CB86B0E2C311FC6006D4C27 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -93,9 +93,9 @@
 				3CB86B0C2C311FC6006D4C27 /* ScholarspotApp.swift */,
 				3CB86B0E2C311FC6006D4C27 /* ContentView.swift */,
 				3C1CAD1C2C3125540083AA80 /* OpportunityFeed.swift */,
-				3CAB7EC42C3689CB006EB699 /* OpportunityFeed1.swift */,
 				3C1CAD232C31259B0083AA80 /* OpportunityCell.swift */,
 				3C1CAD252C3125BD0083AA80 /* Opportunity.swift */,
+				3CAB7EC62C376172006EB699 /* OppurtunityDetail.swift */,
 				3C1CAD272C3125E00083AA80 /* FilterDropdown.swift */,
 				3C1CAD292C3126010083AA80 /* FilterView.swift */,
 				3C1CAD2B2C3126C60083AA80 /* UploadOpportunity.swift */,
@@ -198,12 +198,12 @@
 			files = (
 				3C1CAD2E2C312CCF0083AA80 /* OpportunityDetailsView.swift in Sources */,
 				3C1CAD2A2C3126010083AA80 /* FilterView.swift in Sources */,
+				3CAB7EC72C376172006EB699 /* OppurtunityDetail.swift in Sources */,
 				3C1CAD1D2C3125540083AA80 /* OpportunityFeed.swift in Sources */,
 				3C1CAD302C312D410083AA80 /* GradeSelectionView.swift in Sources */,
 				3C1CAD342C312D710083AA80 /* ReviewandSubmitView.swift in Sources */,
 				3C1CAD242C31259B0083AA80 /* OpportunityCell.swift in Sources */,
 				3C1CAD282C3125E00083AA80 /* FilterDropdown.swift in Sources */,
-				3CAB7EC52C3689CB006EB699 /* OpportunityFeed1.swift in Sources */,
 				3C1CAD322C312D5A0083AA80 /* DeadlineSelectionView.swift in Sources */,
 				3C1CAD2C2C3126C60083AA80 /* UploadOpportunity.swift in Sources */,
 				3C1CAD362C312D840083AA80 /* MultipleSelectionView.swift in Sources */,
